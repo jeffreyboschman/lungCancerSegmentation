@@ -15,8 +15,8 @@ import torch.cuda
 from torch.utils.data import Dataset
 
 sys.path.append('/content/lungCancerSegmentation')
-from util.disk import getCache
-from util.util import XyzTuple, xyz2irc
+from lungCancerSegmentation.util.disk import getCache
+from lungCancerSegmentation.util.util import XyzTuple, xyz2irc
 #from util.logconf import logging
 
 #log = logging.getLogger(__name__)
