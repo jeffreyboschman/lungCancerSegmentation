@@ -3,6 +3,7 @@ import csv
 import functools
 import glob
 import os
+import sys
 
 from collections import namedtuple
 
@@ -13,6 +14,7 @@ import torch
 import torch.cuda
 from torch.utils.data import Dataset
 
+sys.path.append('/content/lungCancerSegmentation')
 #from util.disk import getCache
 from util import XyzTuple, xyz2irc
 #from util.logconf import logging
