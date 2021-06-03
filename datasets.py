@@ -14,12 +14,11 @@ import torch
 import torch.cuda
 from torch.utils.data import Dataset
 
-sys.path.append('/content/lungCancerSegmentation')
 from lungCancerSegmentation.util.disk import getCache
 from lungCancerSegmentation.util.util import XyzTuple, xyz2irc
-#from util.logconf import logging
+from lungCancerSegmentation.util.logconf import logging
 
-#log = logging.getLogger(__name__)
+log = logging.getLogger(__name__)
 # log.setLevel(logging.WARN)
 # log.setLevel(logging.INFO)
 #log.setLevel(logging.DEBUG)
