@@ -13,16 +13,16 @@ import torch
 import torch.cuda
 from torch.utils.data import Dataset
 
-from util.disk import getCache
-from util.util import XyzTuple, xyz2irc
-from util.logconf import logging
+#from util.disk import getCache
+from utils import XyzTuple, xyz2irc
+#from util.logconf import logging
 
-log = logging.getLogger(__name__)
+#log = logging.getLogger(__name__)
 # log.setLevel(logging.WARN)
 # log.setLevel(logging.INFO)
-log.setLevel(logging.DEBUG)
+#log.setLevel(logging.DEBUG)
 
-raw_cache = getCache('part2ch10_raw')
+#raw_cache = getCache('part2ch10_raw')
 
 CandidateInfoTuple = namedtuple(
     'CandidateInfoTuple',
@@ -38,7 +38,7 @@ def getCandidateInfoList(requireOnDisk_bool=True):
     presentOnDisk_set = {os.path.split(p)[-1][:-4] for p in mhd_list}
 
     diameter_dict = {}
-    with open('data/part2/luna/annotations.csv', "r") as f:
+    with open('/content/lungCancerSegmentation/csvFiles/annotations.csv', "r") as f:
         for row in list(csv.reader(f))[1:]:
             series_uid = row[0]
             annotationCenter_xyz = tuple([float(x) for x in row[1:4]])
@@ -49,7 +49,7 @@ def getCandidateInfoList(requireOnDisk_bool=True):
             ) #if series_uid is in the dict already, returns the Value (which is a list) and appends new values to the end of the list. This allows for multiple annotations per series_uid. Otherwise, creates new key as series_uid and sets the value to [] (the "default" that we set") and then appends the annotation values to the end of the new list. 
 
     candidateInfo_list = []
-    with open('data/part2/luna/candidates.csv', "r") as f:
+    with open('/content/lungCancerSegmentation/csvFiles/candidates.csv', "r") as f:
         for row in list(csv.reader(f))[1:]:
             series_uid = row[0]
 
@@ -83,7 +83,7 @@ def getCandidateInfoList(requireOnDisk_bool=True):
 class Ct:
     def __init__(self, series_uid):
         mhd_path = glob.glob(
-            'data-unversioned/part2/luna/subset*/{}.mhd'.format(series_uid)
+            '/content/lungCancerSegmentation/data/subset_*/{}.mhd'.format(series_uid)
         )[0]
 
         ct_mhd = sitk.ReadImage(mhd_path)
