@@ -1,4 +1,4 @@
-from diskcache import FanoutCache, Dis
+from diskcache import FanoutCache, Disk
 
 
 def getCache(scope_str):
