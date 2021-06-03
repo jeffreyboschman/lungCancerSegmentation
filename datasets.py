@@ -16,7 +16,7 @@ from torch.utils.data import Dataset
 
 sys.path.append('/content/lungCancerSegmentation')
 #from util.disk import getCache
-from util import XyzTuple, xyz2irc
+from util.util import XyzTuple, xyz2irc
 #from util.logconf import logging
 
 #log = logging.getLogger(__name__)
