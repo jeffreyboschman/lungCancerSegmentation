@@ -14,9 +14,9 @@ import torch
 import torch.cuda
 from torch.utils.data import Dataset
 
-from code.util.disk import getCache
-from code.util.util import XyzTuple, xyz2irc
-from code.util.logconf import logging
+from lungCancerSegmentation.code.util.disk import getCache
+from lungCancerSegmentation.code.util.util import XyzTuple, xyz2irc
+from lungCancerSegmentation.code.util.logconf import logging
 
 log = logging.getLogger(__name__)
 # log.setLevel(logging.WARN)
