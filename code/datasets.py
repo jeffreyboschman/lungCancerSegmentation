@@ -80,7 +80,7 @@ def getCandidateInfoList(requireOnDisk_bool=True):
 
     candidateInfo_list.sort(reverse=True) #this means we have all the actual nodule samples starting with the largest sample first, followed by all the non-nodule samples (which don't have nodule size information)
     return candidateInfo_list
-
+#
 class Ct:
     def __init__(self, series_uid):
         mhd_path = glob.glob(
